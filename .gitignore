@@ -1,0 +1,8 @@
+### Vim ###
+# swap
+.sw[a-p]
+.*.sw[a-p]
+*.orig
+
+# Ignore config file so folks can lay it down in-repo if they want
+repo-completion/repo-completion.conf
