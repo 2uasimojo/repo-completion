@@ -29,7 +29,7 @@ echo "repo-completion will search under ${_START[@]}"
 repo() {
   [ "$1" ] || echo "Specify repo"
   for d in $(_repo_dirs); do
-    if [[ "$1" == $(basename $d) || ("$1" == */* && "$1" == $(_fq_repo_name $d)) ]]; then
+    if [[ "$1" == $(basename $d) || ("$1" == */* && "$1" == $(echo $d | _fq_repo_name)) ]]; then
       echo $d
       cd $d
       break
