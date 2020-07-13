@@ -32,9 +32,11 @@ repo() {
     if [[ "$1" == $(basename $d) || ("$1" == */* && "$1" == $(echo $d | _fq_repo_name)) ]]; then
       echo $d
       cd $d
-      break
+      return 0
     fi
   done
+  echo "Repo $1 not found"
+  return 1
 }
 
 _fq_repo_name() {
