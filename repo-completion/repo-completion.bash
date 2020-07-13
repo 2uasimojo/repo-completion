@@ -32,6 +32,7 @@ repo() {
     if [[ "$1" == $(basename $d) || ("$1" == */* && "$1" == $(echo $d | _fq_repo_name)) ]]; then
       echo $d
       cd $d
+      export PROMPT_COMMAND='printf "\033]0;r/'$1'\007"'
       return 0
     fi
   done
